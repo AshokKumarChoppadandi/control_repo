@@ -27,6 +27,13 @@ node puppetagent3 {
     ensure => absent,
     image  => 'agent',
   }
+
+  file { '/root/Test.txt':
+    ensure  => file,
+    # Here '$' is used for variable substitution
+    # Built in variables are defined by puppet itself and few from 'Facter'
+    content => $fqdn,
+  }
 }
 
 node puppetmaster {
