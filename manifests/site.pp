@@ -18,9 +18,18 @@ node puppetagent3 {
   #   ensure => 'present',
   # }
 
-  include role::puppet_agent_server
+  
 }
 
 node puppetmaster {
-  include role::puppet_master_server
+  # include role::puppet_master_server
+  include role::puppet_agent_server
+}
+
+node /^web/ {
+  include role::app_server
+}
+
+node /^db/ {
+  include role::db_server
 }
