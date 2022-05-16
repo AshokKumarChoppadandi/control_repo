@@ -34,6 +34,12 @@ node puppetagent3 {
     # Built in variables are defined by puppet itself and few from 'Facter'
     content => $fqdn,
   }
+
+  file { '/root/Test2.txt':
+    ensure  => file,
+    # This is the String interpolation or String substitution.
+    content => "This host name is ${fqdn}\n",
+  }
 }
 
 node puppetmaster {
