@@ -6,4 +6,15 @@ node puppetagent3 {
     group   => 'bigdata',
     mode    => '0744',
   }
+
+  include create_user
+  # Other way
+  # Syntax
+  # class { '<classname>':
+  #   ensure => 'present',
+  # }
+  # Example:
+  # class { 'system_usre_class':
+  #   ensure => 'present',
+  # }
 }
