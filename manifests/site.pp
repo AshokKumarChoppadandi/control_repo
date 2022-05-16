@@ -17,4 +17,10 @@ node puppetagent3 {
   # class { 'system_usre_class':
   #   ensure => 'present',
   # }
+
+  include role::puppet_agent_server
+}
+
+node puppetmaster {
+  include role::puppet_master_server
 }
